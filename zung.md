@@ -23,5 +23,9 @@
 - create userSlice & add to the store.
 
 
+-Profile page.
+-security checks.
+-Protected Routes.
+
 
 
