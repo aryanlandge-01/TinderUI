@@ -17,6 +17,10 @@
 - Install axios
 - Cors - instal cors plugin add orgin and credentials is true.
 - while making an api call pass the withCredentials is true.
+- Install react-Redux (state management liabiary)
+- configure store and userReducer 
+- provider store to app.jsx
+- create userSlice & add to the store.
 
 
 
