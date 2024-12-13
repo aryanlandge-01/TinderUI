@@ -10,4 +10,14 @@
 - create basic router with browserrouter and childern outlet
 
 
+## Auth
+
+- Login "/"
+- Create Login page
+- Install axios
+- Cors - instal cors plugin add orgin and credentials is true.
+- while making an api call pass the withCredentials is true.
+
+
+
 
