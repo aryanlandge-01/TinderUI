@@ -12,8 +12,14 @@ const Body = () => {
   const navigate = useNavigate();
   const userData = useSelector(store => store.user);
 
+  // console.log((userData));
+  
+
 
   const fetchUser = async() => {
+    // console.log("fetching the user data.");
+    
+   if (userData) return;
    try {
     const res = await axios.get(BASE_URL + "/profile/view",{
       withCredentials: true,
@@ -29,10 +35,7 @@ const Body = () => {
   }
 
   useEffect(() => {
-    if(!userData) {
       fetchUser();
-    }
-    
   },[])
 
 
