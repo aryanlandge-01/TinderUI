@@ -9,6 +9,8 @@ const Login = () => {
 
   const [emailId,setEmailId] = useState("akshaysaini@gmail.com");
   const [password,setPassword] = useState("Akshay@1938");
+  const [err,seterr] = useState("");
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
@@ -27,14 +29,15 @@ const Login = () => {
     );
     dispatch(addUser(res.data));
     navigate("/");
-    // console.log(res);
-
 
     } catch (error) {
-      console.log(error)
+      seterr(error?.response?.data || "Something went wrong.")
+     
     }
 
   }
+
+  
 
   
   
@@ -68,6 +71,7 @@ const Login = () => {
     className="input input-bordered w-full max-w-xs" />
     </label>
     </div>
+    <p className='text-red-600'>{err}</p>
     <div className="card-actions justify-center">
       <button onClick={handleLogin} className="btn btn-primary">Login</button>
     </div>

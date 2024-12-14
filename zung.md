@@ -26,6 +26,7 @@
 -Profile page.
 -security checks.
 -Protected Routes.
+-logout features
 
 
 
