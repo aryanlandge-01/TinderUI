@@ -27,6 +27,8 @@
 -security checks.
 -Protected Routes.
 -logout features
+- get the feed and the feed in the store
+- userCard
 
 
 
