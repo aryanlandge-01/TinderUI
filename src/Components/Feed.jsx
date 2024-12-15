@@ -28,6 +28,10 @@ const Feed = () => {
 
   },[])
 
+  if(!feed) return;
+
+  if(feed.length === 0) return <h1 className='my-20 text-9xl text-center'>No new users Found</h1>
+
 
   return feed && (
     <div className='flex items-center justify-center min-h-[600px]'>

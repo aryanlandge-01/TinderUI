@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../utils/constant';
+import login_bg from '../assets/login_bg.jpeg'
 
 const Login = () => {
 
@@ -45,39 +46,79 @@ const Login = () => {
   
 
   return (
-    <div className='flex items-center justify-center min-h-[600px] '>
-    <div className="card bg-base-300 w-96 shadow-xl">
-    <div className="card-body">
-    <h2 className="card-title justify-center">Login</h2>
-    <div>
-    <label className="form-control w-full max-w-xs my-2">
-    <div className="label">
-      <span className="label-text">Email ID</span>
+//     <div className='absolute'>
+//       <img src={login_bg}/>
+//     <div className='flex items-center justify-center min-h-[600px] '>
+//     <div className="card bg-base-300 w-96 shadow-xl">
+//     <div className="card-body">
+//     <h2 className="card-title justify-center">Login</h2>
+//     <div>
+//     <label className="form-control w-full max-w-xs my-2">
+//     <div className="label">
+//       <span className="label-text">Email ID</span>
+//     </div>
+//     <input 
+//     type="text" 
+//     value={emailId}
+//     onChange={(e) => setEmailId(e.target.value)}
+//     className="input input-bordered w-full max-w-xs" />
+//     </label>
+//     <label className="form-control w-full max-w-xs my-2">
+//     <div className="label">
+//       <span className="label-text">Password</span>
+//     </div>
+//     <input 
+//     type="text" 
+//     value={password}
+//     onChange={(e) => setPassword(e.target.value)}
+//     className="input input-bordered w-full max-w-xs" />
+//     </label>
+//     </div>
+//     <p className='text-red-600'>{err}</p>
+//     <div className="card-actions justify-center">
+//       <button onClick={handleLogin} className="btn btn-primary">Login</button>
+//     </div>
+//     </div>
+// </div>
+//     </div>
+//     </div>
+<div className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat -z-10"  style={{ backgroundImage: `url(${login_bg})` }}>
+  <div className="flex items-center justify-center h-full">
+    <div className="card bg-base-300 w-96 shadow-xl bg-opacity-80">
+      <div className="card-body">
+        <h2 className="card-title justify-center">Login</h2>
+        <div>
+          <label className="form-control w-full max-w-xs my-2">
+            <div className="label">
+              <span className="label-text">Email ID</span>
+            </div>
+            <input
+              type="text"
+              value={emailId}
+              onChange={(e) => setEmailId(e.target.value)}
+              className="input input-bordered w-full max-w-xs"
+            />
+          </label>
+          <label className="form-control w-full max-w-xs my-2">
+            <div className="label">
+              <span className="label-text">Password</span>
+            </div>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="input input-bordered w-full max-w-xs"
+            />
+          </label>
+        </div>
+        <p className="text-red-600">{err}</p>
+        <div className="card-actions justify-center">
+          <button onClick={handleLogin} className="btn btn-primary">Login</button>
+        </div>
+      </div>
     </div>
-    <input 
-    type="text" 
-    value={emailId}
-    onChange={(e) => setEmailId(e.target.value)}
-    className="input input-bordered w-full max-w-xs" />
-    </label>
-    <label className="form-control w-full max-w-xs my-2">
-    <div className="label">
-      <span className="label-text">Password</span>
-    </div>
-    <input 
-    type="text" 
-    value={password}
-    onChange={(e) => setPassword(e.target.value)}
-    className="input input-bordered w-full max-w-xs" />
-    </label>
-    </div>
-    <p className='text-red-600'>{err}</p>
-    <div className="card-actions justify-center">
-      <button onClick={handleLogin} className="btn btn-primary">Login</button>
-    </div>
-    </div>
+  </div>
 </div>
-    </div>
   )
 }
 
