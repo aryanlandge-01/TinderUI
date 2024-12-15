@@ -30,6 +30,9 @@
 - get the feed and the feed in the store
 - userCard
 
+-Connections Requests.
+-Requests.
+
 
 ## Connection Request.
 
