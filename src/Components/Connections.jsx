@@ -38,20 +38,24 @@ const Connections = () => {
         const {firstName,lastName,age,gender,photoUrl,about}  = connection;
 
         return (
-          <div className="hero bg-base-300 min-h-svh">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+          <div className="my-2 p-4 flex flex-col rounded-2xl md:flex-row gap-20 justify-center items-center bg-base-200 max-w-screen-sm mx-auto">
           <img
             src={photoUrl}
-            className="max-w-sm rounded-lg shadow-2xl" />
-        <div>
-        <h1 className="text-5xl font-bold">{firstName}!</h1>
-        <p className="py-6">
-          {about}
-        </p>
-        <button className="btn btn-primary">Connected</button>
-     </div>
-    </div>
-        </div>
+            className="max-w-40 rounded-lg shadow-2xl" 
+            alt="Profile"
+          />
+          <div className="text-center md:text-right">
+            <h1 className="text-5xl font-bold mb-2">{firstName}!</h1>
+             <p className='text-lg font-semibold mb-2'>
+              Age: {age}
+             </p>
+             <p className='text-lg font-semibold mb-2'>
+              Gender: {gender}
+             </p>
+             <button className="btn btn-primary ">View Profile</button>
+          </div>
+          </div>
+        
         )
       })}
     </div>
