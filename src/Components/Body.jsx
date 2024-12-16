@@ -12,12 +12,7 @@ const Body = () => {
   const navigate = useNavigate();
   const userData = useSelector(store => store.user);
 
-  // console.log((userData));
-  
-
-
   const fetchUser = async() => {
-    // console.log("fetching the user data.");
     
    if (userData) return;
    try {

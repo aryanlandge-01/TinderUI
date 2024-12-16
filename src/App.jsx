@@ -8,6 +8,7 @@ import Feed from "./Components/Feed"
 import ForgetPassword from "./Components/ForgetPassword"
 import Connections from "./Components/Connections"
 import Requests from "./Components/Requests"
+import Signup from "./Components/Signup"
 
 function App() {
 
@@ -19,11 +20,11 @@ function App() {
         <Route path="/" element={<Body/>}>
           <Route path="/" element={<Feed/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/signup" element={<Signup/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/forget" element={<ForgetPassword/>}/>
           <Route path="/connections" element={<Connections/>}/>
           <Route path="/requests" element={<Requests/>}/>
-
         </Route>
       </Routes>
     </BrowserRouter>

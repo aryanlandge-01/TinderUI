@@ -25,8 +25,6 @@ const Requests = () => {
   }
 
   const reviewRequest = async (status,_id) => {
-     console.log(status,_id);
-     
     try {
       const res = await axios.post(BASE_URL + "/request/review/" + status + "/" + _id,{},{
         withCredentials: true
@@ -34,7 +32,6 @@ const Requests = () => {
 
       dispatch(removeRequest(_id))
 
-      // console.log(res);
     } catch (error) {
       console.log(error)
     }
