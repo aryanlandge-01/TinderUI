@@ -9,6 +9,7 @@ import ForgetPassword from "./Components/ForgetPassword"
 import Connections from "./Components/Connections"
 import Requests from "./Components/Requests"
 import Signup from "./Components/Signup"
+import Chat from "./Components/Chat"
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/forget" element={<ForgetPassword/>}/>
           <Route path="/connections" element={<Connections/>}/>
           <Route path="/requests" element={<Requests/>}/>
+          <Route path="/chat/:targetUserId" element={<Chat/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

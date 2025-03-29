@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {BASE_URL} from '../utils/constant';
 import {addConnections} from "../utils/connectionSlice"
+import { Link } from 'react-router-dom';
+import Chat from './Chat';
 
 const Connections = () => {
   const [err,setErr] = useState("");
@@ -51,7 +53,7 @@ const Connections = () => {
              <p className='text-lg font-semibold mb-2'>
               Gender: {gender}
              </p>
-             <button className="btn btn-primary ">View Profile</button>
+             <Link to={"/chat/" + _id}><button className="btn btn-primary ">Chat</button></Link>
           </div>
           </div>
         
