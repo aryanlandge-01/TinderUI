@@ -8,6 +8,8 @@ const Chat = () => {
   const user = useSelector((state) => state.user);
   const userId = user?._id;
   const firstName = user?.firstName;
+  const [currentTime,setCurrentTime] = useState("");
+
   if (!userId) {
     return <div>Please log in to view this page. </div>
   }
@@ -17,6 +19,14 @@ const Chat = () => {
 
   useEffect(() => {
     const socket = createSocketConnection();
+    const now = new Date();
+
+    const formattedTime = now.toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false, // use true for 12-hour format with AM/PM
+    });
+    setCurrentTime(formattedTime);
 
     // As soon as the page loads, we join the chat sokcet is created and joinchat event is emitted.
     socket.emit("joinChat",{userId,targetUserId});
@@ -33,6 +43,8 @@ const Chat = () => {
       socket.disconnect();
     };
   },[targetUserId])
+
+ 
 
 
   
@@ -57,28 +69,52 @@ const Chat = () => {
     <div className="flex flex-col space-y-2 p-4">
       {/* User 1 Message */}
       <div className="flex justify-start">
-        <div className="bg-blue-200 rounded-lg p-2 max-w-[70%]">
-          <p className="text-sm">Hello there! How are you doing today?</p>
-        </div>
+        <div className="chat chat-start">
+  <div className="chat-image avatar">
+    <div className="w-10 rounded-full">
+      <img
+        alt="Tailwind CSS chat bubble component"
+        src={user?.photoUrl}
+      />
+    </div>
+  </div>
+  <div className="chat-header">
+    {firstName}
+    <h1>Chat with userId: {targetUserId}</h1>
+    <time className="text-xs opacity-50 p-1">{currentTime}</time>
+  </div>
+  <div className="chat-bubble">You were the Chosen One!</div>
+  <div className="chat-footer opacity-50">Delivered</div>
+</div>
+    
       </div>
 
       {/* User 2 Message */}
       <div className="flex justify-end">
-        <div className="bg-gray-200 rounded-lg p-2 max-w-[70%]">
+        <div className=" rounded-lg p-2 max-w-[70%]">
           {messages.map((msg,index) => {
-            return  <p key={index} className="text-sm font-medium text-gray-700">{msg.text}</p>
+            return (
+              <div className="chat chat-end">
+          <div className="chat-image avatar">
+          <div className="w-10 rounded-full">
+           <img
+             alt="Tailwind CSS chat bubble component"
+             src={user?.photoUrl}
+           />
+        </div>
+      </div>
+       <div className="chat-header">
+           {firstName}
+          <time className="text-xs opacity-50">{currentTime}</time>
+        </div>
+      <div className="chat-bubble">{msg.text}</div>
+          <div className="chat-footer opacity-50">Seen at 12:46</div>
+        </div>
+            )
+            // return  <p key={index} className="text-sm font-medium text-gray-700">{msg.text}</p>
           })}
         </div>
       </div>
-
-      {/* User 1 Message */}
-      <div className="flex justify-start">
-        <div className="bg-blue-200 rounded-lg p-2 max-w-[70%]">
-          <p className="text-sm font-medium text-black">I'm also doing well. Just wanted to chat.</p>
-        </div>
-      </div>
-
-      {/* more messages can be added here */}
     </div>
     </div>
 
